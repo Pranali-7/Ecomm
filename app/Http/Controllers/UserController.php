@@ -14,17 +14,7 @@ class UserController extends Controller
     public function login(Request $req)
     {
        
-            // $rules=[
-            //     'username'=>'required|email',
-            //     'password'=>'required',
-            // ];
-            // $customMessage=[
-            //     'username.required'=>"Email Required",
-            //     'username.email'=>"Valid Email Required",
-            //     'password.required'=>"Password Required",
-            // ];
-
-            // $this->validate($req,$rules,$customMessage);
+            
 
             $user =User::where(['email'=>$req->email])->first();
             if(!$user || !Hash::check($req->password,$user->password))
